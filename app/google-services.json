@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "405632809931",
+    "project_id": "pamfirebase-1444c",
+    "storage_bucket": "pamfirebase-1444c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:405632809931:android:26e0ec66309e729e08d44e",
+        "android_client_info": {
+          "package_name": "com.example.praktikum_pertemuan14"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB482S9hZAXTR-Z6cTnw96d_CPJzcg1K4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
