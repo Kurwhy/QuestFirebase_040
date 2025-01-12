@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.praktikum_pertemuan14.ui.home.navigation.PengelolaHalaman
 import com.example.praktikum_pertemuan14.ui.home.pages.HomeScreen
 import com.example.praktikum_pertemuan14.ui.theme.Praktikum_Pertemuan14Theme
 
@@ -21,9 +22,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             Praktikum_Pertemuan14Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    HomeScreen(
+                    PengelolaHalaman(
                         modifier = Modifier.padding(innerPadding),
-                        navigateToltemEntry = {}
                     )
                 }
             }
