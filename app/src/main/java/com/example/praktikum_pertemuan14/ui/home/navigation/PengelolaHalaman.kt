@@ -25,6 +25,7 @@ fun PengelolaHalaman(
                 navigateToltemEntry = {
                     navController.navigate(DestinasiInsert.route)
                 },
+                onDetailClick = { nim -> navController.navigate("${DestinasiDetail.routeWithArg}/$nim") },
             )
         }
         composable(DestinasiInsert.route) {
