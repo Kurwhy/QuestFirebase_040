@@ -34,6 +34,9 @@ class InsertViewModel(
             alamat = if (event.alamat.isNotEmpty()) null else "Alamat tidak boleh kosong",
             kelas = if (event.kelas.isNotEmpty()) null else "Kelas tidak boleh kosong",
             angkatan = if (event.angkatan.isNotEmpty()) null else "Angkatan tidak boleh kosong",
+            judulSkripsi = if (event.judulSkripsi.isNotEmpty()) null else "Judul Skripsi tidak boleh kosong",
+            dospemSatu = if (event.dospemSatu.isNotEmpty()) null else "Dospem Satu tidak boleh kosong",
+            dospemDua = if (event.dospemDua.isNotEmpty()) null else "Dospem Dua tidak boleh kosong",
         )
         uiEvent = uiEvent.copy(isEntryValid = errorState)
         return errorState.isValid()
@@ -82,11 +85,15 @@ data class FormErrorState(
     val jenisKelamin: String? = null,
     val alamat: String? = null,
     val kelas: String? = null,
-    val angkatan: String? = null
+    val angkatan: String? = null,
+    val judulSkripsi: String? = null,
+    val dospemSatu: String? = null,
+    val dospemDua: String? = null
 ) {
     fun isValid(): Boolean {
         return nim == null && nama == null && jenisKelamin == null &&
-                alamat == null && kelas == null && angkatan == null
+                alamat == null && kelas == null && angkatan == null &&
+                judulSkripsi == null && dospemSatu == null && dospemDua == null
     }
 }
 
@@ -96,7 +103,10 @@ data class MahasiswaEvent(
     val jenisKelamin: String = "",
     val alamat: String = "",
     val kelas: String = "",
-    val angkatan: String = ""
+    val angkatan: String = "",
+    val judulSkripsi: String = "",
+    val dospemSatu: String = "",
+    val dospemDua: String = ""
 )
 
 fun MahasiswaEvent.toMhsModel(): Mahasiswa = Mahasiswa(
@@ -105,7 +115,10 @@ fun MahasiswaEvent.toMhsModel(): Mahasiswa = Mahasiswa(
     jenisKelamin = jenisKelamin,
     alamat = alamat,
     kelas = kelas,
-    angkatan = angkatan
+    angkatan = angkatan,
+    judulSkripsi = judulSkripsi,
+    dospemSatu = dospemSatu,
+    dospemDua = dospemDua
 )
 
 
