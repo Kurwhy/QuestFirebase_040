@@ -1,7 +1,10 @@
 package com.example.praktikum_pertemuan14.ui.home.pages
 
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -34,6 +37,7 @@ fun InsertMhsView(
     val uiEvent = viewModel.uiEvent
     val snackbarHostState = remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
+    val scrollState = rememberScrollState()
 
     LaunchedEffect(uiState) {
         when (uiState) {
@@ -75,6 +79,7 @@ fun InsertMhsView(
                 .fillMaxSize()
                 .padding(padding)
                 .padding(16.dp)
+                .verticalScroll(scrollState)
         ) {
             InsertBodyMhs(
                 uiState = uiEvent,
@@ -251,6 +256,48 @@ fun FormMahasiswa(
         )
         Text(
             text = errorState.nama ?: "",
+            color = Color.Red
+        )
+
+        OutlinedTextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = mahasiswaEvent.judulSkripsi,
+            onValueChange = {
+                onValueChange(mahasiswaEvent.copy(judulSkripsi = it)) },
+            label = { Text("Judul Skripsi") },
+            isError = errorState.judulSkripsi != null,
+            placeholder = { Text("Masukkan Judul Skripsi") },
+        )
+        Text(
+            text = errorState.judulSkripsi ?: "",
+            color = Color.Red
+        )
+
+        OutlinedTextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = mahasiswaEvent.dospemSatu,
+            onValueChange = {
+                onValueChange(mahasiswaEvent.copy(dospemSatu = it)) },
+            label = { Text("Dosen Pembimbing 1") },
+            isError = errorState.dospemSatu != null,
+            placeholder = { Text("Masukkan Nama Dosen Pembimbing 1") },
+        )
+        Text(
+            text = errorState.dospemSatu ?: "",
+            color = Color.Red
+        )
+
+        OutlinedTextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = mahasiswaEvent.dospemDua,
+            onValueChange = {
+                onValueChange(mahasiswaEvent.copy(dospemDua = it)) },
+            label = { Text("Dosen Pembimbing 1") },
+            isError = errorState.dospemDua != null,
+            placeholder = { Text("Masukkan Nama Dosen Pembimbing 2") },
+        )
+        Text(
+            text = errorState.dospemDua ?: "",
             color = Color.Red
         )
     }
